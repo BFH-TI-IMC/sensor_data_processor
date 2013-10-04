@@ -34,20 +34,13 @@
         android:text="@string/optionsSectionHeading"
         android:layout_below="@id/sensorSelector" />
     
-    <CheckBox android:id="@+id/ttsNotificationsCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/speakMovementDetectedLabel"
-        android:checked="@bool/useTtsDefaultValue"
-        android:layout_below="@id/optionsLabel"
-        android:onClick="onTtsNotificationsCheckBoxClicked" />
+
     
     <CheckBox android:id="@+id/highPassFilterCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enableHighPassFilterLabel"
         android:checked="@bool/useHighPassFilterDefaultValue"
-        android:layout_below="@id/ttsNotificationsCheckBox"
         android:onClick="onHighPassFilterCheckBoxClicked" />
     
     <ToggleButton android:id="@+id/readAccelerationDataToggleButton"
