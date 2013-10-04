@@ -46,19 +46,7 @@ public class SummarizingEditPreferences extends PreferenceActivity implements On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-		preferencesToEdit = R.xml.speech_preferences;
-		String preferenceName = getResources().getString(
-				R.string.pref_speech_key);
-		// maybe get preferences from an intent...
-		if (getIntent() != null) {
-			preferencesToEdit = getIntent().getIntExtra(
-					WHICH_PREFERENCES_INTENT, R.xml.speech_preferences);
-			preferenceName = getIntent().getStringExtra(
-					WHICH_PREFERENCES_NAME_INTENT);
-		}
-
         PreferenceManager preferenceManager = getPreferenceManager();
-        preferenceManager.setSharedPreferencesName(preferenceName);
         preferenceManager.setSharedPreferencesMode(Context.MODE_WORLD_WRITEABLE);
         
         addPreferencesFromResource(preferencesToEdit);

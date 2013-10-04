@@ -67,7 +67,6 @@ public class DetermineMovementActivity extends SpeechRecognizingAndSpeakingActiv
     private boolean useTtsNotification;
     private boolean useHighPassFilter;
     private XYPlot xyPlot;
-    private CheckBox ttsNotificationsCheckBox;
     private CheckBox highPassFilterCheckBox;
     private HashMap<String, String> ttsParams;
 
@@ -186,7 +185,6 @@ public class DetermineMovementActivity extends SpeechRecognizingAndSpeakingActiv
             {
                 sensorSelector.getChildAt(i).setEnabled(false);
             }
-            ttsNotificationsCheckBox.setEnabled(false);
             highPassFilterCheckBox.setEnabled(false);
             
             // Data files are stored on the external cache directory so they can
@@ -258,7 +256,6 @@ public class DetermineMovementActivity extends SpeechRecognizingAndSpeakingActiv
             {
                 sensorSelector.getChildAt(i).setEnabled(true);
             }
-            ttsNotificationsCheckBox.setEnabled(true);
             highPassFilterCheckBox.setEnabled(true);
             
             sensorManager.unregisterListener(accelerometerListener);
