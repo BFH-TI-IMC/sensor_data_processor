@@ -46,15 +46,17 @@ public class SummarizingEditPreferences extends PreferenceActivity implements On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preferencesToEdit = R.xml.speech_preferences;
-        String preferenceName = getResources().getString(R.string.pref_speech_key);
-        //maybe get preferences from an intent...
-        if (getIntent() != null)
-        {
-            preferencesToEdit = getIntent().getIntExtra(WHICH_PREFERENCES_INTENT, R.xml.speech_preferences);
-            preferenceName = getIntent().getStringExtra(WHICH_PREFERENCES_NAME_INTENT);
-        }
-        
+		preferencesToEdit = R.xml.speech_preferences;
+		String preferenceName = getResources().getString(
+				R.string.pref_speech_key);
+		// maybe get preferences from an intent...
+		if (getIntent() != null) {
+			preferencesToEdit = getIntent().getIntExtra(
+					WHICH_PREFERENCES_INTENT, R.xml.speech_preferences);
+			preferenceName = getIntent().getStringExtra(
+					WHICH_PREFERENCES_NAME_INTENT);
+		}
+
         PreferenceManager preferenceManager = getPreferenceManager();
         preferenceManager.setSharedPreferencesName(preferenceName);
         preferenceManager.setSharedPreferencesMode(Context.MODE_WORLD_WRITEABLE);
@@ -80,7 +82,8 @@ public class SummarizingEditPreferences extends PreferenceActivity implements On
         getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);     
     } 
 
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) 
+    @Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) 
     {
         //if it changed a map preference, need to flag the map as changed.. maybe in the return
         //value from this activity
@@ -111,14 +114,16 @@ public class SummarizingEditPreferences extends PreferenceActivity implements On
     }
     
     //menu handling
-    public boolean onCreateOptionsMenu(Menu menu)
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.preferences_menu, menu);
         return true;
     }
     
-    public boolean onOptionsItemSelected (MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected (MenuItem item)
     {
         switch (item.getItemId())
         {

@@ -85,7 +85,6 @@ public class DetermineMovementActivity extends SpeechRecognizingAndSpeakingActiv
         this.setVolumeControlStream(TTS_STREAM);
         
         sensorSelector = (RadioGroup)findViewById(R.id.sensorSelector);
-        ttsNotificationsCheckBox = (CheckBox)findViewById(R.id.ttsNotificationsCheckBox);
         highPassFilterCheckBox = (CheckBox)findViewById(R.id.highPassFilterCheckBox);
         
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -100,13 +99,6 @@ public class DetermineMovementActivity extends SpeechRecognizingAndSpeakingActiv
                 preferences.getBoolean(USE_HIGH_PASS_FILTER_PREFERENCE_KEY,
                                        useHighPassFilter);
         ((CheckBox)findViewById(R.id.highPassFilterCheckBox)).setChecked(useHighPassFilter);
-        
-        useTtsNotification =
-                getResources().getBoolean(R.bool.useTtsDefaultValue); 
-        useTtsNotification =
-                preferences.getBoolean(USE_TTS_NOTIFICATION_PREFERENCE_KEY,
-                                       useTtsNotification);
-        ((CheckBox)findViewById(R.id.ttsNotificationsCheckBox)).setChecked(useTtsNotification);
         
         selectedSensorType =
                 preferences.getInt(SELECTED_SENSOR_TYPE_PREFERENCE_KEY,
