@@ -31,9 +31,9 @@ public class PreferenceHelper
 {
     private static final String TAG = "PreferenceHelper";
     
-    public final static double NOT_SET = Double.MAX_VALUE;
+	public final static double NOT_SET = Double.MAX_VALUE;
 
-    private SharedPreferences preferences;
+	private final SharedPreferences preferences;
 
     /**
      * 
@@ -41,6 +41,7 @@ public class PreferenceHelper
     public PreferenceHelper(String preferencesName, Context context)
     {
         preferences = context.getSharedPreferences(preferencesName,
+
                 Context.MODE_WORLD_WRITEABLE);
     }
 
@@ -53,13 +54,13 @@ public class PreferenceHelper
     }
 
     public int getInteger(Context context, int prefNameResource, int defaultValResource)
-    {
-        String prefName = context.getResources().getString(prefNameResource);
-        int defaultVal = context.getResources().getInteger(defaultValResource);
-        Log.d(TAG, prefName + " with default: " + defaultVal);
-        int pref = preferences.getInt(prefName, defaultVal); 
-        return pref;
-    }
+ {
+		String prefName = context.getResources().getString(prefNameResource);
+		int defaultVal = context.getResources().getInteger(defaultValResource);
+		Log.d(TAG, prefName + " with default: " + defaultVal);
+		int pref = preferences.getInt(prefName, defaultVal);
+		return pref;
+	}
 
 //    public int getInt(String prefName, String defaultVal)
 //    {

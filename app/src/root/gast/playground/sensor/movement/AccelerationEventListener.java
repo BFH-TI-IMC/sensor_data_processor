@@ -20,14 +20,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.SystemClock;
-import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 import com.androidplot.xy.LineAndPointFormatter;
@@ -53,32 +51,23 @@ public class AccelerationEventListener implements SensorEventListener
     private static final int CHART_REFRESH = 125;
     
     private PrintWriter printWriter;
-    private long startTime;
-    private float[] gravity;
+    private final long startTime;
+    private final float[] gravity;
     private int highPassCount;
-    private SimpleXYSeries xAxisSeries;
-    private SimpleXYSeries yAxisSeries;
-    private SimpleXYSeries zAxisSeries;
-    private SimpleXYSeries accelerationSeries;
-    private XYPlot xyPlot;
+    private final SimpleXYSeries xAxisSeries;
+    private final SimpleXYSeries yAxisSeries;
+    private final SimpleXYSeries zAxisSeries;
+    private final SimpleXYSeries accelerationSeries;
+    private final XYPlot xyPlot;
     private long lastChartRefresh;
-    private boolean useHighPassFilter;
-    private TextToSpeech tts;
-    private HashMap<String, String> ttsParams;
-    private String movementText;
+    private final boolean useHighPassFilter;
 
     public AccelerationEventListener(XYPlot xyPlot,
                                      boolean useHighPassFilter,
-                                     File dataFile,
-                                     TextToSpeech tts,
-                                     HashMap<String, String> ttsParams,
-                                     String movementText)
+			File dataFile)
     {
         this.xyPlot = xyPlot;
         this.useHighPassFilter = useHighPassFilter;
-        this.tts = tts;
-        this.ttsParams = ttsParams;
-        this.movementText = movementText;
         
         xAxisSeries = new SimpleXYSeries("X Axis");
         yAxisSeries = new SimpleXYSeries("Y Axis");
@@ -199,13 +188,6 @@ public class AccelerationEventListener implements SensorEventListener
                 if (acceleration > THRESHHOLD)
                 {
                     Log.i(TAG, "Movement detected");
-                    
-                    if (tts != null)
-                    {
-                        tts.speak(movementText,
-                                  TextToSpeech.QUEUE_FLUSH,
-                                  ttsParams);
-                    }
                 }
             }
         }
