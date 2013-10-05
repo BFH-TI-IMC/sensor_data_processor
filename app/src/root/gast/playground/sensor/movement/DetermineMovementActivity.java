@@ -56,6 +56,7 @@ public class DetermineMovementActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.determine_movement);
 
 		sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
@@ -94,7 +95,7 @@ public class DetermineMovementActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-		onPause();
+		super.onPause();
 		stopReadingAccelerationData();
 	}
 

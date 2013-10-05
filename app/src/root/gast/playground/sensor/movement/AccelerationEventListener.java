@@ -233,10 +233,10 @@ public class AccelerationEventListener implements SensorEventListener
             printWriter.close();
         }
         
-        if (printWriter.checkError())
-        {
-            Log.e(TAG, "Error closing writer");
-        }
+		// if (printWriter.checkError()) // TODO put this in again
+		// {
+		// Log.e(TAG, "Error closing writer");
+		// }
     }
 
     @Override
