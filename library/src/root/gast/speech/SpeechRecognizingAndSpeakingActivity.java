@@ -47,7 +47,7 @@ public abstract class SpeechRecognizingAndSpeakingActivity extends
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        init();
+		// init();
     }
     
     private void init()

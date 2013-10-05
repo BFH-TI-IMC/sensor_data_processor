@@ -54,17 +54,17 @@ public abstract class SpeechRecognizingActivity extends Activity implements
     {
         super.onCreate(savedInstanceState);
 
-        boolean recognizerIntent =
-                SpeechRecognitionUtil.isSpeechAvailable(this);
-        if (!recognizerIntent)
-        {
-            speechNotAvailable();
-        }
-        boolean direct = SpeechRecognizer.isRecognitionAvailable(this);
-        if (!direct)
-        {
-            directSpeechNotAvailable();
-        }
+		// boolean recognizerIntent =
+		// SpeechRecognitionUtil.isSpeechAvailable(this);
+		// if (!recognizerIntent)
+		// {
+		// speechNotAvailable();
+		// }
+		// boolean direct = SpeechRecognizer.isRecognitionAvailable(this);
+		// if (!direct)
+		// {
+		// directSpeechNotAvailable();
+		// }
     }
 
     protected void checkForLanguage(final Locale language)

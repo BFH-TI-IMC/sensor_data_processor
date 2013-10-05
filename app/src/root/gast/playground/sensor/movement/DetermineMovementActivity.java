@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Greg Milette and Adam Stroud
+ * Copyright 2013 HTA
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,15 @@
 package root.gast.playground.sensor.movement;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.List;
 
 import root.gast.playground.R;
-import root.gast.speech.SpeechRecognizingAndSpeakingActivity;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.media.AudioManager;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech.Engine;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,18 +35,12 @@ import com.androidplot.xy.XYPlot;
 
 /**
  * Determines when the device has been moved and notifies the user.
- * 
- * @author Adam Stroud &#60;<a
- *         href="mailto:adam.stroud@gmail.com">adam.stroud@gmail.com</a>&#62;
  */
-public class DetermineMovementActivity extends
-		SpeechRecognizingAndSpeakingActivity {
+public class DetermineMovementActivity extends Activity {
 	private static final String TAG = "DetermineMovementActivity";
 	private static final int RATE = SensorManager.SENSOR_DELAY_NORMAL;
 	private static final String USE_HIGH_PASS_FILTER_PREFERENCE_KEY = "USE_HIGH_PASS_FILTER_PREFERENCE_KEY";
-	private static final String USE_TTS_NOTIFICATION_PREFERENCE_KEY = "USE_TTS_NOTIFICATION_PREFERENCE_KEY";
 	private static final String SELECTED_SENSOR_TYPE_PREFERENCE_KEY = "SELECTED_SENSOR_TYPE_PREFERENCE_KEY";
-	private static final int TTS_STREAM = AudioManager.STREAM_NOTIFICATION;
 
 	private SensorManager sensorManager;
 	private RadioGroup sensorSelector;
@@ -60,23 +49,14 @@ public class DetermineMovementActivity extends
 	private SharedPreferences preferences;
 	private AccelerationEventListener accelerometerListener;
 	private AccelerationEventListener linearAccelerationListener;
-	private boolean useTtsNotification;
 	private boolean useHighPassFilter;
 	private XYPlot xyPlot;
 	private CheckBox highPassFilterCheckBox;
-	private HashMap<String, String> ttsParams;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+
 		super.setContentView(R.layout.determine_movement);
-
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		ttsParams = new HashMap<String, String>();
-		ttsParams.put(Engine.KEY_PARAM_STREAM, String.valueOf(TTS_STREAM));
-
-		this.setVolumeControlStream(TTS_STREAM);
 
 		sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
 		highPassFilterCheckBox = (CheckBox) findViewById(R.id.highPassFilterCheckBox);
@@ -114,7 +94,7 @@ public class DetermineMovementActivity extends
 
 	@Override
 	protected void onPause() {
-		super.onPause();
+		onPause();
 		stopReadingAccelerationData();
 	}
 
@@ -214,25 +194,4 @@ public class DetermineMovementActivity extends
 		}
 	}
 
-	public void onTtsNotificationsCheckBoxClicked(View view) {
-		useTtsNotification = ((CheckBox) view).isChecked();
-		preferences
-				.edit()
-				.putBoolean(USE_TTS_NOTIFICATION_PREFERENCE_KEY,
-						useTtsNotification).commit();
-	}
-
-	public void onHighPassFilterCheckBoxClicked(View view) {
-		useHighPassFilter = ((CheckBox) view).isChecked();
-		preferences
-				.edit()
-				.putBoolean(USE_HIGH_PASS_FILTER_PREFERENCE_KEY,
-						useHighPassFilter).commit();
-	}
-
-	@Override
-	protected void receiveWhatWasHeard(List<String> heard,
-			float[] confidenceScores) {
-		// no-op
-	}
 }
