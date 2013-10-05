@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package root.gast.playground.sensor.movement;
+package root.gast.playground;
 
 import java.io.BufferedWriter;
 import java.io.File;

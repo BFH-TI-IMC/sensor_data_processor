@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package root.gast.playground.sensor.movement;
+package root.gast.playground;
 
 import java.io.File;
 
-import root.gast.playground.R;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -36,8 +35,8 @@ import com.androidplot.xy.XYPlot;
 /**
  * Determines when the device has been moved and notifies the user.
  */
-public class DetermineMovementActivity extends Activity {
-	private static final String TAG = "DetermineMovementActivity";
+public class MainActivity extends Activity {
+	private static final String TAG = "MainActivity";
 	private static final int RATE = SensorManager.SENSOR_DELAY_NORMAL;
 	private static final String USE_HIGH_PASS_FILTER_PREFERENCE_KEY = "USE_HIGH_PASS_FILTER_PREFERENCE_KEY";
 	private static final String SELECTED_SENSOR_TYPE_PREFERENCE_KEY = "SELECTED_SENSOR_TYPE_PREFERENCE_KEY";
