@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		super.setContentView(R.layout.determine_movement);
+		super.setContentView(R.layout.main);
 
 		sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
 		highPassFilterCheckBox = (CheckBox) findViewById(R.id.highPassFilterCheckBox);
