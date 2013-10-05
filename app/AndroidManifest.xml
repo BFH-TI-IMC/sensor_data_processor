@@ -34,23 +34,5 @@
             </intent-filter>
  -->
 
-    <receiver 
-      android:name="root.gast.speech.tts.LanguageDataInstallBroadcastReceiver">
-      <intent-filter>
-            <action 
-             android:name="android.speech.tts.engine.TTS_DATA_INSTALLED"/>
-     </intent-filter>
-    </receiver>
-        
-        <service android:name="root.gast.speech.activation.SpeechActivationService"/>
-        
-        <service android:name="root.gast.speech.activation.SpeechActivationIntentService"/>
-
-        <receiver android:name=".speech.activation.ShowResultsSpeechActivationBroadcastReceiver">
-            <intent-filter >
-                <action android:name="root.gast.playground.speech.ACTIVATION"/>
-            </intent-filter>
-        </receiver>
-
     </application>
 </manifest>
