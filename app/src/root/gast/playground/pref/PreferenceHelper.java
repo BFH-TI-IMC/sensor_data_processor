@@ -35,10 +35,8 @@ public class PreferenceHelper
 
 	private final SharedPreferences preferences;
 
-    /**
-     * 
-     */
-    public PreferenceHelper(String preferencesName, Context context)
+// TODO
+	public PreferenceHelper(String preferencesName, Context context)
     {
         preferences = context.getSharedPreferences(preferencesName,
 
