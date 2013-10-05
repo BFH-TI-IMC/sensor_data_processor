@@ -4,6 +4,8 @@
       android:versionCode="1"
       android:versionName="1.0">
       
+    
+    
     <uses-sdk android:minSdkVersion="17" 
         android:targetSdkVersion="18"/>
         
@@ -20,10 +22,12 @@
     <!-- so Nexus 7 devices are supported -->
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     
-	<application android:icon="@drawable/icon" 
+
+    <application android:icon="@drawable/icon" 
 	    android:label="@string/app_name" 
-	    android:logo="@drawable/emptyone">
-        <activity android:name=".GastAppActivity"
+	    android:logo="@drawable/emptyone"
+	    android:allowBackup="true" >
+	    <activity android:name=".GastAppActivity"
                   android:label="@string/activity_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,13 +71,6 @@
                 android:resource="@xml/accessory_filter" />
         </activity>
         
-        <receiver android:name=".location.TrackLocationBroadcastReceiver">
-            <intent-filter >
-                <action android:name="root.gast.playground.location.ACTION_LOCATION_CHANGED"/>
-            </intent-filter>
-        </receiver>
-
-        <!-- has 80 characters per line -->
     <receiver 
       android:name="root.gast.speech.tts.LanguageDataInstallBroadcastReceiver">
       <intent-filter>
