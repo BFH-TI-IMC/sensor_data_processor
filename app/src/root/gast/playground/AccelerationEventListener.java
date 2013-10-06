@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Greg Milette and Adam Stroud
+ * Copyright 2013 Bern University of Applied Sciences BFH
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package root.gast.playground;
 
 import java.io.BufferedWriter;
@@ -35,21 +36,18 @@ import com.androidplot.xy.XYPlot;
 
 /**
  * Receives accelerometer events and writes them to CSV files and plots them on a graph.
- * 
- * @author Adam Stroud &#60;<a href="mailto:adam.stroud@gmail.com">adam.stroud@gmail.com</a>&#62;
  */
 public class AccelerationEventListener implements SensorEventListener
 {
     private static final String TAG = "AccelerationEventListener";
     private static final char CSV_DELIM = ',';
     private static final int THRESHHOLD = 2;
-    private static final String CSV_HEADER =
-            "X Axis,Y Axis,Z Axis,Acceleration,Time";
+	private static final String CSV_HEADER = "X Axis,Y Axis,Z Axis,Acceleration,Time";
     private static final float ALPHA = 0.8f;
     private static final int HIGH_PASS_MINIMUM = 10;
     private static final int MAX_SERIES_SIZE = 30;
     private static final int CHART_REFRESH = 125;
-    
+
     private PrintWriter printWriter;
     private final long startTime;
     private final float[] gravity;
@@ -62,22 +60,21 @@ public class AccelerationEventListener implements SensorEventListener
     private long lastChartRefresh;
     private final boolean useHighPassFilter;
 
-    public AccelerationEventListener(XYPlot xyPlot,
-                                     boolean useHighPassFilter,
+	public AccelerationEventListener(XYPlot xyPlot, boolean useHighPassFilter,
 			File dataFile)
     {
         this.xyPlot = xyPlot;
         this.useHighPassFilter = useHighPassFilter;
-        
+
         xAxisSeries = new SimpleXYSeries("X Axis");
         yAxisSeries = new SimpleXYSeries("Y Axis");
         zAxisSeries = new SimpleXYSeries("Z Axis");
         accelerationSeries = new SimpleXYSeries("Acceleration");
-        
+
         gravity = new float[3];
         startTime = SystemClock.uptimeMillis();
         highPassCount = 0;
-        
+
         try
         {
             printWriter = 
@@ -89,7 +86,7 @@ public class AccelerationEventListener implements SensorEventListener
         {
             Log.e(TAG, "Could not open CSV file(s)", e);
         }
-        
+
         if (xyPlot != null)
         {
             xyPlot.addSeries(xAxisSeries,
@@ -143,7 +140,7 @@ public class AccelerationEventListener implements SensorEventListener
                               values[1],
                               values[2]);
         }
-        
+
         // Ignore data if the high-pass filter is enabled, has not yet received
         // some data to set it
         if (!useHighPassFilter || (++highPassCount >= HIGH_PASS_MINIMUM))
@@ -152,7 +149,7 @@ public class AccelerationEventListener implements SensorEventListener
                     + (values[1] * values[1])
                     + (values[2] * values[2]);
             double acceleration = Math.sqrt(sumOfSquares);
-            
+
             // Write to data file
             writeSensorEvent(printWriter,
                              values[0],
@@ -160,7 +157,7 @@ public class AccelerationEventListener implements SensorEventListener
                              values[2],
                              acceleration,
                              event.timestamp);
-            
+
             // If the plot is null, the sensor is not active. Do not plot the
             // data or used the data to determine if the device is moving
             if (xyPlot != null)
@@ -177,12 +174,12 @@ public class AccelerationEventListener implements SensorEventListener
                     addDataPoint(yAxisSeries, timestamp, values[1]);
                     addDataPoint(zAxisSeries, timestamp, values[2]);
                     addDataPoint(accelerationSeries, timestamp, acceleration);
-                    
+
                     xyPlot.redraw();
-                    
+
                     lastChartRefresh = current;
                 }
-                
+
                 // A "movement" is only triggered of the total acceleration is
                 // above a threshold
                 if (acceleration > THRESHHOLD)
@@ -204,7 +201,7 @@ public class AccelerationEventListener implements SensorEventListener
         
         series.addLast(timestamp, value);
     }
-    
+
     /**
      * This method derived from the Android documentation and is available under
      * the Apache 2.0 license.
@@ -213,8 +210,10 @@ public class AccelerationEventListener implements SensorEventListener
      */
     private float[] highPass(float x, float y, float z)
     {
-        float[] filteredValues = new float[3];
-        
+		// TODO Apply your math stuff here.
+
+		float[] filteredValues = new float[3];
+
         gravity[0] = ALPHA * gravity[0] + (1 - ALPHA) * x;
         gravity[1] = ALPHA * gravity[1] + (1 - ALPHA) * y;
         gravity[2] = ALPHA * gravity[2] + (1 - ALPHA) * z;
@@ -222,7 +221,7 @@ public class AccelerationEventListener implements SensorEventListener
         filteredValues[0] = x - gravity[0];
         filteredValues[1] = y - gravity[1];
         filteredValues[2] = z - gravity[2];
-        
+
         return filteredValues;
     }
 
@@ -232,8 +231,8 @@ public class AccelerationEventListener implements SensorEventListener
         {
             printWriter.close();
         }
-        
-		// if (printWriter.checkError()) // TODO put this in again
+
+		// if (printWriter.checkError()) // TODO Put this in again.
 		// {
 		// Log.e(TAG, "Error closing writer");
 		// }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Greg Milette and Adam Stroud
+ * Copyright 2013 Bern University of Applied Sciences BFH
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package root.gast.playground.sensor;
 
 import root.gast.playground.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-/**
- * @author Greg Milette &#60;<a href="mailto:gregorym@gmail.com">gregorym@gmail.com</a>&#62;
- */
 public class SensorListActivity extends FragmentActivity
 {
     @Override

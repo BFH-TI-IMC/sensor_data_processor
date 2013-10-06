@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Greg Milette and Adam Stroud
+ * Copyright 2013 Bern University of Applied Sciences BFH
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package root.gast.playground.pref;
 
 import root.gast.playground.R;
@@ -33,7 +34,6 @@ import android.view.MenuItem;
 
 /**
  * handy preferences activity that shows the current value
- * @author Greg Milette &#60;<a href="mailto:gregorym@gmail.com">gregorym@gmail.com</a>&#62;
  */
 public class SummarizingEditPreferences extends PreferenceActivity implements OnSharedPreferenceChangeListener
 {

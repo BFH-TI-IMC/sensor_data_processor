@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Greg Milette and Adam Stroud
+ * Copyright 2013 Bern University of Applied Sciences BFH
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package root.gast.playground.pref;
 
 import java.util.Locale;
@@ -25,7 +26,6 @@ import android.util.Log;
 
 /**
  * help deal with all the preferences
- * @author Greg Milette &#60;<a href="mailto:gregorym@gmail.com">gregorym@gmail.com</a>&#62;
  */
 public class PreferenceHelper
 {
@@ -35,7 +35,6 @@ public class PreferenceHelper
 
 	private final SharedPreferences preferences;
 
-// TODO
 	public PreferenceHelper(String preferencesName, Context context)
     {
         preferences = context.getSharedPreferences(preferencesName,
