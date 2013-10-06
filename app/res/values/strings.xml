@@ -82,7 +82,7 @@
 	<string name="d_select_audio_stream">Select audio stream</string>
 	<string name="d_sent">Sent</string>
 	<string name="d_exit">Exit</string>
-	<string name="d_ok">Ok</string>
+	<string name="d_ok">OK</string>
        
     <!-- Sensors -->
     <string name="launchDetermineOrientation">Determine Orientation</string>
