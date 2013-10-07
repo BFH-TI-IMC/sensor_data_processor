@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package root.gast.playground.pref;
+package ch.bfh.sensordataprocessor.pref;
 
-import root.gast.playground.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -31,6 +30,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import ch.bfh.sensordataprocessor.R;
 
 /**
  * handy preferences activity that shows the current value

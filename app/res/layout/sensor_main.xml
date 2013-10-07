@@ -7,11 +7,11 @@
         android:id="@+id/frag_sensor_select"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        class="root.gast.playground.sensor.SensorSelectorFragment" />
+        class="ch.bfh.sensordataprocessor.sensor.SensorSelectorFragment" />
 
     <fragment
         android:id="@+id/frag_sensor_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        class="root.gast.playground.sensor.SensorDisplayFragment" />
+        class="ch.bfh.sensordataprocessor.sensor.SensorDisplayFragment" />
 </LinearLayout>

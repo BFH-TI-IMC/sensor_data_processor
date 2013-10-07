@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package root.gast.playground.sensor;
+package ch.bfh.sensordataprocessor.sensor;
 
-import root.gast.playground.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import ch.bfh.sensordataprocessor.R;
 
 public class SensorListActivity extends FragmentActivity
 {

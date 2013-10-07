@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package root.gast.playground.pref;
+package ch.bfh.sensordataprocessor.pref;
 
 import java.util.Locale;
 
-import root.gast.playground.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
+import ch.bfh.sensordataprocessor.R;
 
 /**
  * help deal with all the preferences

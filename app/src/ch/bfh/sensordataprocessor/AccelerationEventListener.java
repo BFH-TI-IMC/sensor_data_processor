@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package root.gast.playground;
+package ch.bfh.sensordataprocessor;
 
 import java.io.BufferedWriter;
 import java.io.File;

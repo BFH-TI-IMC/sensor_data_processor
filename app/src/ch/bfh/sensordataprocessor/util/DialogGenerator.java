@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package root.gast.playground.util;
+package ch.bfh.sensordataprocessor.util;
 
 import java.util.List;
 

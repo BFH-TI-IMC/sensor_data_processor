@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-package root.gast.playground.sensor;
+package ch.bfh.sensordataprocessor.sensor;
 
-import root.gast.playground.BuildConfig;
-import root.gast.playground.R;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -31,6 +29,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import ch.bfh.sensordataprocessor.BuildConfig;
+import ch.bfh.sensordataprocessor.R;
 
 /**
  * Displays the details of a sensor.

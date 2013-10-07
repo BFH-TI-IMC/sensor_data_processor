@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package root.gast.playground.sensor;
+package ch.bfh.sensordataprocessor.sensor;
 
 import java.util.List;
 
-import root.gast.playground.BuildConfig;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -31,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import ch.bfh.sensordataprocessor.BuildConfig;
 
 public class SensorSelectorFragment extends ListFragment
 {
