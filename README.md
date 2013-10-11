@@ -14,7 +14,8 @@ By sensors, we mean:
 GAST provides code for the following capabilities:
 
 * Location sensors: sensors related to the LocationProvider API 
-* Physical sensors: all sensors in SensorManager API such as the ones that detect device specific properties such as orientation, acceleration, and rotationand environmental properties such as light, magnetic fi eld, and barometric pressure.
+* Physical sensors: all sensors in SensorManager API such as the ones that detect device specific properties such as orientation, acceleration, and rotation
+and environmental properties such as light, magnetic fi eld, and barometric pressure.
 * External sensors: Any sensor connected using the Android Open Accessory (AOA) mechanism.
 * NFC
 * Camera
@@ -43,3 +44,12 @@ GAST provides code for the following capabilities:
 ## License
 
 All the code is licensed under the Apache 2.0 license. See [LICENSE.txt](https://github.com/gast-lib/gast-lib/blob/master/LICENSE.txt) for license details.
+
+
+
+
+
+
+
+
+BliBlaBla
