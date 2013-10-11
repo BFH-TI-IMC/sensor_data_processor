@@ -11,10 +11,29 @@ It is based on the code written for [Professional Android Sensor Programming](ht
 By sensors, we mean:
 *a capability that can capture measurements about the device and its external environment*
 
-GAST provides code for the following capabilities:
+GAST provides code for the following capabhfbdhs,jkgfhlkdyuxhgjfldfyxiuchkvjöyldxkuchjvl
+
+
+
+fdslkcxgvjöxdfilckjvm
+d$
+
+
+fdcx
+vxdf
+cg
+sdxfgv
+dfs
+sdfc
+sdfx
+rtsgdflksgholiusdfghjpölodi.fxljkvöofxdgicvb
+dfx¨$dft
+gxcvd
+fxcvilities:
 
 * Location sensors: sensors related to the LocationProvider API 
-* Physical sensors: all sensors in SensorManager API such as the ones that detect device specific properties such as orientation, acceleration, and rotationand environmental properties such as light, magnetic fi eld, and barometric pressure.
+* Physical sensors: all sensors in SensorManager API such as the ones that detect device specific properties such as orientation, acceleration, and rotation
+and environmental properties such as light, magnetic fi eld, and barometric pressure.
 * External sensors: Any sensor connected using the Android Open Accessory (AOA) mechanism.
 * NFC
 * Camera
