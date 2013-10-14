@@ -7,10 +7,12 @@
     <uses-sdk android:minSdkVersion="14" 
         android:targetSdkVersion="18"/>
 
-    <application android:icon="@drawable/icon" 
+    <application android:icon="@drawable/ic_bfh" 
 	    android:label="@string/app_name" 
-	    android:logo="@drawable/emptyone"
 	    android:allowBackup="true" >
+	    
+<!-- 	    android:logo="@drawable/emptyone" -->
+	    
 	    <activity android:name=".MainActivity"
                   android:label="@string/activity_title" >
                   
