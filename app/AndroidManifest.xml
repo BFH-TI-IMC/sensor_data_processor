@@ -12,7 +12,11 @@
 	    android:logo="@drawable/emptyone"
 	    android:allowBackup="true" >
 	    <activity android:name=".MainActivity"
-                  android:label="@string/activity_title">
+                  android:label="@string/activity_title" >
+                  
+<!--                   android:theme="@android::style/Theme.Holo" >  -->
+                  
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

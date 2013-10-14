@@ -4,35 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView android:id="@+id/sensorSelectorLabel"
-        style="@style/apptext"
-        android:text="@string/selectSensorSectionHeading"
-        android:layout_alignParentTop="true"/>
+<!--     <TextView android:id="@+id/sensorSelectorLabel" -->
+<!--         style="@style/apptext" -->
+<!--         android:text="@string/selectSensorSectionHeading" -->
+<!--         android:layout_alignParentTop="true"/> -->
     
-    <RadioGroup android:id="@+id/sensorSelector" 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sensorSelectorLabel">
+<!--     <RadioGroup android:id="@+id/sensorSelector"  -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/sensorSelectorLabel"> -->
         
-        <RadioButton android:id="@+id/accelerometer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/accelerometerLabel"
-            android:checked="true"
-            android:onClick="onSensorSelectorClick" />
+<!--         <RadioButton android:id="@+id/accelerometer" -->
+<!--             android:layout_width="match_parent" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/accelerometerLabel" -->
+<!--             android:checked="true" -->
+<!--             android:onClick="onSensorSelectorClick" /> -->
         
-        <RadioButton android:id="@+id/linearAcceleration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/linearAccelerationSensorLabel"
-            android:checked="false"
-            android:onClick="onSensorSelectorClick" />
-    </RadioGroup>
+<!--         <RadioButton android:id="@+id/linearAcceleration" -->
+<!--             android:layout_width="match_parent" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/linearAccelerationSensorLabel" -->
+<!--             android:checked="false" -->
+<!--             android:onClick="onSensorSelectorClick" /> -->
+<!--     </RadioGroup> -->
     
-    <TextView android:id="@+id/optionsLabel"
-        style="@style/apptext"
-        android:text="@string/optionsSectionHeading"
-        android:layout_below="@id/sensorSelector" />
+<!--     <TextView android:id="@+id/optionsLabel" -->
+<!--         style="@style/apptext" -->
+<!--         android:text="@string/optionsSectionHeading" -->
+<!--         android:layout_below="@id/sensorSelector" /> -->
     
 
     

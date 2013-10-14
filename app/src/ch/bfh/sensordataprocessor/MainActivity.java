@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 
@@ -59,7 +58,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.main);
 
-		sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
+		// sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
 		highPassFilterCheckBox = (CheckBox) findViewById(R.id.highPassFilterCheckBox);
 
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -78,12 +77,13 @@ public class MainActivity extends Activity {
 		selectedSensorType = preferences.getInt(
 				SELECTED_SENSOR_TYPE_PREFERENCE_KEY, Sensor.TYPE_ACCELEROMETER);
 
-		if (selectedSensorType == Sensor.TYPE_ACCELEROMETER) {
-			((RadioButton) findViewById(R.id.accelerometer)).setChecked(true);
-		} else {
-			((RadioButton) findViewById(R.id.linearAcceleration))
-					.setChecked(true);
-		}
+		// if (selectedSensorType == Sensor.TYPE_ACCELEROMETER) { // FIXME
+		// temporally removed
+		// ((RadioButton) findViewById(R.id.accelerometer)).setChecked(true);
+		// } else {
+		// ((RadioButton) findViewById(R.id.linearAcceleration))
+		// .setChecked(true);
+		// }
 
 		xyPlot = (XYPlot) findViewById(R.id.XYPlot);
 		xyPlot.setDomainLabel("Elapsed Time (ms)");
@@ -99,19 +99,20 @@ public class MainActivity extends Activity {
 		stopReadingAccelerationData();
 	}
 
-	public void onSensorSelectorClick(View view) {
-		int selectedSensorId = sensorSelector.getCheckedRadioButtonId();
-		if (selectedSensorId == R.id.accelerometer) {
-			selectedSensorType = Sensor.TYPE_ACCELEROMETER;
-		} else if (selectedSensorId == R.id.linearAcceleration) {
-			selectedSensorType = Sensor.TYPE_LINEAR_ACCELERATION;
-		}
+	// public void onSensorSelectorClick(View view) {
+	// int selectedSensorId = sensorSelector.getCheckedRadioButtonId();
+		// if (selectedSensorId == R.id.accelerometer) { // FIXME temporally
+		// removed
+		// selectedSensorType = Sensor.TYPE_ACCELEROMETER;
+		// } else if (selectedSensorId == R.id.linearAcceleration) {
+		// selectedSensorType = Sensor.TYPE_LINEAR_ACCELERATION;
+		// }
 
-		preferences
-				.edit()
-				.putInt(SELECTED_SENSOR_TYPE_PREFERENCE_KEY, selectedSensorType)
-				.commit();
-	}
+	// preferences
+	// .edit()
+	// .putInt(SELECTED_SENSOR_TYPE_PREFERENCE_KEY, selectedSensorType)
+	// .commit();
+	// }
 
 	public void onReadAccelerationDataToggleButtonClicked(View view) {
 		ToggleButton toggleButton = (ToggleButton) view;
@@ -131,9 +132,9 @@ public class MainActivity extends Activity {
 
 			// Disable UI components so they cannot be changed while plotting
 			// sensor data
-			for (int i = 0; i < sensorSelector.getChildCount(); i++) {
-				sensorSelector.getChildAt(i).setEnabled(false);
-			}
+			// for (int i = 0; i < sensorSelector.getChildCount(); i++) {
+			// sensorSelector.getChildAt(i).setEnabled(false);
+			// }
 			highPassFilterCheckBox.setEnabled(false);
 
 			// Data files are stored on the external cache directory so they can
@@ -145,6 +146,7 @@ public class MainActivity extends Activity {
 
 			if (selectedSensorType == Sensor.TYPE_ACCELEROMETER) {
 				xyPlot.setTitle("Sensor.TYPE_ACCELEROMETER");
+				// TODO check this out
 				accelerometerListener = new AccelerationEventListener(xyPlot,
 						useHighPassFilter, accelerometerDataFile);
 
@@ -177,9 +179,9 @@ public class MainActivity extends Activity {
 	private void stopReadingAccelerationData() {
 		if (readingAccelerationData) {
 			// Re-enable sensor and options UI views
-			for (int i = 0; i < sensorSelector.getChildCount(); i++) {
-				sensorSelector.getChildAt(i).setEnabled(true);
-			}
+			// for (int i = 0; i < sensorSelector.getChildCount(); i++) {
+			// sensorSelector.getChildAt(i).setEnabled(true);
+			// }
 			highPassFilterCheckBox.setEnabled(true);
 
 			sensorManager.unregisterListener(accelerometerListener);
@@ -195,4 +197,11 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	public void onHighPassFilterCheckBoxClicked(View view) {
+		useHighPassFilter = ((CheckBox) view).isChecked();
+		preferences
+				.edit()
+				.putBoolean(USE_HIGH_PASS_FILTER_PREFERENCE_KEY,
+						useHighPassFilter).commit();
+	}
 }
