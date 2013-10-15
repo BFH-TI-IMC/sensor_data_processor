@@ -16,18 +16,8 @@
 
 package ch.bfh.sensordataprocessor.math;
 
-public class SimpleFilter {
+public interface IFilter {
 
-	static final float LOW_PASS_A = 0.1f;
-
-	static final float HIGH_PASS_A = 0.7f;
-
-	static float lowPass(float current, float last) {
-		return last * (1.0f - LOW_PASS_A) + current * LOW_PASS_A;
-	}
-
-	static float highPass(float current, float last, float filtered) {
-		return HIGH_PASS_A * (filtered + current - last);
-	}
+    public float processValue(float newValue);
 
 }
