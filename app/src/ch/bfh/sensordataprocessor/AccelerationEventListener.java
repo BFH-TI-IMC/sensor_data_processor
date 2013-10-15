@@ -202,28 +202,29 @@ public class AccelerationEventListener implements SensorEventListener
         series.addLast(timestamp, value);
     }
 
-    /**
-     * This method derived from the Android documentation and is available under
-     * the Apache 2.0 license.
-     * 
-     * @see http://developer.android.com/reference/android/hardware/SensorEvent.html
-     */
-    private float[] highPass(float x, float y, float z)
-    {
-		// TODO Apply your math stuff here.
+	/**
+	 * This method derived from the Android documentation and is available under
+	 * the Apache 2.0 license.
+	 * 
+	 * @see http
+	 *      ://developer.android.com/reference/android/hardware/SensorEvent.html
+	 */
+	private float[] highPass(float x, float y, float z) {
+
+		// TODO For Students: Apply your math stuff here.
 
 		float[] filteredValues = new float[3];
 
-        gravity[0] = ALPHA * gravity[0] + (1 - ALPHA) * x;
-        gravity[1] = ALPHA * gravity[1] + (1 - ALPHA) * y;
-        gravity[2] = ALPHA * gravity[2] + (1 - ALPHA) * z;
+		gravity[0] = ALPHA * gravity[0] + (1 - ALPHA) * x;
+		gravity[1] = ALPHA * gravity[1] + (1 - ALPHA) * y;
+		gravity[2] = ALPHA * gravity[2] + (1 - ALPHA) * z;
 
-        filteredValues[0] = x - gravity[0];
-        filteredValues[1] = y - gravity[1];
-        filteredValues[2] = z - gravity[2];
+		filteredValues[0] = x - gravity[0];
+		filteredValues[1] = y - gravity[1];
+		filteredValues[2] = z - gravity[2];
 
-        return filteredValues;
-    }
+		return filteredValues;
+	}
 
     public void stop()
     {
@@ -232,7 +233,7 @@ public class AccelerationEventListener implements SensorEventListener
             printWriter.close();
         }
 
-		// if (printWriter.checkError()) // TODO Put this in again.
+		// if (printWriter.checkError()) // FIXME Put this in again.
 		// {
 		// Log.e(TAG, "Error closing writer");
 		// }
