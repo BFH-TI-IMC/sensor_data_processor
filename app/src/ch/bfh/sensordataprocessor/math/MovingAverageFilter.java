@@ -19,6 +19,10 @@ package ch.bfh.sensordataprocessor.math;
 
 public class MovingAverageFilter extends AbstractBufferedFilter implements IBufferedFilter {
 
+    public MovingAverageFilter (int bufferSize) {
+        super(bufferSize);
+    }
+
     @Override
     protected void processNewValue(float newValue) {
         setValue(getValue() + (newValue - getLastValue()) / getBufferLength());

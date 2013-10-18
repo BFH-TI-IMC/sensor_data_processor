@@ -26,6 +26,10 @@ public class LowPassFilter extends AbstractFilter implements IFilter {
         this.alpha = alpha;
     }
 
+    public LowPassFilter() {
+        this(STANDARD_LOW_PASS_ALPHA);
+    }
+
     @Override
     public float processValue(float newValue) {
         return getLastValue() * (1.0f - alpha) + newValue * alpha;

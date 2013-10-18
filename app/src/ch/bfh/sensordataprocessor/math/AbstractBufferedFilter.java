@@ -42,7 +42,7 @@ public abstract class AbstractBufferedFilter implements IBufferedFilter {
         return getValue();
     }
 
-    abstract protected void processNewValue(float newValue);
+    protected abstract void processNewValue(float newValue);
 
     protected float getValue() {
         return filteredValue;

@@ -23,8 +23,9 @@ public abstract class AbstractFilter implements IFilter {
     protected float getLastValue() {
         return lastValue;
     }
-    
-    abstract public float processValue(float newValue);
-        
+
+    protected void setLastValue(float value) {
+        lastValue = value;
+    }
 
 }

@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 
 import com.androidplot.xy.BoundaryMode;
@@ -42,7 +41,6 @@ public class MainActivity extends Activity {
 	private static final String SELECTED_SENSOR_TYPE_PREFERENCE_KEY = "SELECTED_SENSOR_TYPE_PREFERENCE_KEY";
 
 	private SensorManager sensorManager;
-	private RadioGroup sensorSelector;
 	private int selectedSensorType;
 	private boolean readingAccelerationData;
 	private SharedPreferences preferences;
@@ -58,8 +56,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.main);
 
-		// sensorSelector = (RadioGroup) findViewById(R.id.sensorSelector);
-		highPassFilterCheckBox = (CheckBox) findViewById(R.id.highPassFilterCheckBox);
+        highPassFilterCheckBox = (CheckBox) findViewById(R.id.highPassFilterCheckBox);
 
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -71,8 +68,7 @@ public class MainActivity extends Activity {
 				R.bool.useHighPassFilterDefaultValue);
 		useHighPassFilter = preferences.getBoolean(
 				USE_HIGH_PASS_FILTER_PREFERENCE_KEY, useHighPassFilter);
-		((CheckBox) findViewById(R.id.highPassFilterCheckBox))
-				.setChecked(useHighPassFilter);
+        ((CheckBox) findViewById(R.id.highPassFilterCheckBox)).setChecked(useHighPassFilter);
 
 		selectedSensorType = preferences.getInt(
 				SELECTED_SENSOR_TYPE_PREFERENCE_KEY, Sensor.TYPE_ACCELEROMETER);
@@ -146,7 +142,6 @@ public class MainActivity extends Activity {
 
 			if (selectedSensorType == Sensor.TYPE_ACCELEROMETER) {
 				xyPlot.setTitle("Sensor.TYPE_ACCELEROMETER");
-				// TODO check this out
 				accelerometerListener = new AccelerationEventListener(xyPlot,
 						useHighPassFilter, accelerometerDataFile);
 

@@ -18,9 +18,9 @@ package ch.bfh.sensordataprocessor.math;
 
 public class HighPassFilter extends AbstractFilter implements IFilter {
 
-    static final float STANDARD_HiGH_PASS_ALPHA = 0.7f;
+    static final float STANDARD_HIGH_PASS_ALPHA = 0.7f;
 
-    private float alpha = STANDARD_HiGH_PASS_ALPHA;
+    private float alpha = STANDARD_HIGH_PASS_ALPHA;
 
     private float filteredValue = 0;
 
@@ -28,10 +28,16 @@ public class HighPassFilter extends AbstractFilter implements IFilter {
         this.alpha = alpha;
     }
 
+    public HighPassFilter() {
+        this(STANDARD_HIGH_PASS_ALPHA);
+    }
+
     @Override
     public float processValue(float newValue) {
-        filteredValue = alpha * (filteredValue + newValue - getLastValue());
-        return filteredValue;
+        float val = alpha * (filteredValue + newValue - getLastValue());
+        setLastValue(newValue);
+        filteredValue = val;
+        return val;
     }
 
 }
