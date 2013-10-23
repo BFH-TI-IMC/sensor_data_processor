@@ -20,7 +20,7 @@ public class HighPassFilter extends AbstractFilter implements IFilter {
 
     static final float STANDARD_HIGH_PASS_ALPHA = 0.7f;
 
-    private float alpha = STANDARD_HIGH_PASS_ALPHA;
+    private final float alpha;
 
     private float filteredValue = 0;
 

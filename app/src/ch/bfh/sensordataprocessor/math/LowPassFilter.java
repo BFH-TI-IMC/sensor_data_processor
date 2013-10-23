@@ -20,7 +20,7 @@ public class LowPassFilter extends AbstractFilter implements IFilter {
 
     static final float STANDARD_LOW_PASS_ALPHA = 0.1f;
 
-    private float alpha = STANDARD_LOW_PASS_ALPHA;
+    private final float alpha;
 
     public LowPassFilter(float alpha) {
         this.alpha = alpha;
